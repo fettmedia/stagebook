@@ -1,0 +1,22 @@
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-12-12 21:44:39
+project --topLevelPackage com.fettmedia.stagebook
+hint
+jpa setup --database MYSQL --provider ECLIPSELINK --userName root --databaseName stagebook --password hofer1779
+hint
+entity jpa --class ~.domain.Contact --testAutomatically
+field string firstName
+field string lastName
+field string companyName
+perform clean
+perform tests
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-12-12 23:57:02
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2013-12-12 23:58:15
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-12-12 23:59:50
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2013-12-13 00:02:04
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-12-13 00:04:35
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2013-12-13 00:41:01
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-12-13 00:49:59
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-12-14 15:46:06
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-12-15 15:01:45
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-12-17 21:55:28
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-12-18 21:34:59
