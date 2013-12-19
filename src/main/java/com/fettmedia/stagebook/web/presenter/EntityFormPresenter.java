@@ -13,7 +13,7 @@ import com.fettmedia.stagebook.web.event.SaveEntityAsEvent;
 import com.fettmedia.stagebook.web.event.SaveEntityEvent;
 import com.fettmedia.stagebook.web.forms.EntityForm;
 import com.vaadin.ui.Notification;
-
+//change
 @Component
 public abstract class EntityFormPresenter<ID, E extends IEntity<E>>
 {
