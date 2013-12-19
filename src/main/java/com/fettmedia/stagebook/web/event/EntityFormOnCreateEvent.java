@@ -1,22 +1,22 @@
 package com.fettmedia.stagebook.web.event;
 
-import com.fettmedia.stagebook.web.forms.EntityForm;
+import com.fettmedia.stagebook.web.forms.IEntityForm;
 
 public class EntityFormOnCreateEvent extends SBEvent
 {
-	private EntityForm<?> form;
+	private IEntityForm<?> form;
 	
-	public EntityFormOnCreateEvent(EntityForm<?> form)
+	public EntityFormOnCreateEvent(IEntityForm<?> form)
 	{
 		this.setForm(form);
 	}
 
-	public EntityForm<?> getForm()
+	public IEntityForm<?> getForm()
 	{
 		return form;
 	}
 
-	public void setForm(EntityForm<?> form)
+	public void setForm(IEntityForm<?> form)
 	{
 		this.form = form;
 	}

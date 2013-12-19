@@ -11,16 +11,16 @@ import com.fettmedia.stagebook.web.event.EntityFormOnCreateEvent;
 import com.fettmedia.stagebook.web.event.EventBusProvider;
 import com.fettmedia.stagebook.web.event.SaveEntityAsEvent;
 import com.fettmedia.stagebook.web.event.SaveEntityEvent;
-import com.fettmedia.stagebook.web.forms.EntityForm;
+import com.fettmedia.stagebook.web.forms.IEntityForm;
 import com.vaadin.ui.Notification;
-//change
+
 @Component
 public abstract class EntityFormPresenter<ID, E extends IEntity<E>>
 {
 
 	static Logger log = Logger.getLogger(EntityFormPresenter.class);
 	
-	private EntityForm<E> form;
+	private IEntityForm<E> form;
 	
 	public EntityFormPresenter()
 	{
@@ -31,7 +31,7 @@ public abstract class EntityFormPresenter<ID, E extends IEntity<E>>
 	@Handler
 	public void handleEntityFormCreate(EntityFormOnCreateEvent event)
 	{
-		this.form = (EntityForm<E>) event.getForm();
+		this.form = (IEntityForm<E>) event.getForm();
 	}
 	
 	@Handler
@@ -62,7 +62,7 @@ public abstract class EntityFormPresenter<ID, E extends IEntity<E>>
 		doOnEnter(event.getParameters());
 	}
 	
-	protected EntityForm<E> getForm()
+	protected IEntityForm<E> getForm()
 	{
 		return form;
 	}

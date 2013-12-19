@@ -7,7 +7,7 @@ import ru.xpoft.vaadin.VaadinView;
 
 import com.fettmedia.stagebook.domain.Contact;
 import com.fettmedia.stagebook.web.forms.ContactEditForm;
-import com.fettmedia.stagebook.web.forms.EntityForm;
+import com.fettmedia.stagebook.web.forms.IEntityForm;
 
 @SuppressWarnings("serial")
 @Component
@@ -18,7 +18,7 @@ public class ContactEditView extends EntityEditView<Long, Contact>
 	public static final String NAME = "ContactEditView";
 
 	@Override
-	public EntityForm<Contact> createForm()
+	public IEntityForm<Contact> createForm()
 	{
 		return new ContactEditForm();
 	}

@@ -11,7 +11,7 @@ import ru.xpoft.vaadin.VaadinView;
 import com.fettmedia.stagebook.domain.IEntity;
 import com.fettmedia.stagebook.web.event.EntityEditViewOnEnterEvent;
 import com.fettmedia.stagebook.web.event.EventBusProvider;
-import com.fettmedia.stagebook.web.forms.EntityForm;
+import com.fettmedia.stagebook.web.forms.IEntityForm;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.ui.VerticalLayout;
 
@@ -24,7 +24,7 @@ public abstract class EntityEditView<ID, E extends IEntity<E>> extends VerticalL
 	static Logger log = Logger.getLogger(EntityEditView.class);
 	public final static String NAME = "EntityEditView";
 	
-	private EntityForm<E> form;
+	private IEntityForm<E> form;
 	
 	@Override
 	public void enter(ViewChangeEvent event)
@@ -34,9 +34,9 @@ public abstract class EntityEditView<ID, E extends IEntity<E>> extends VerticalL
 		log.info("enter: FINISHED");
 	}
 	
-	public abstract EntityForm<E> createForm();
+	public abstract IEntityForm<E> createForm();
 	
-	public EntityForm<E> getForm()
+	public IEntityForm<E> getForm()
 	{
 		if (form == null)
 		{

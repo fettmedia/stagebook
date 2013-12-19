@@ -20,7 +20,7 @@ import com.vaadin.ui.FormLayout;
 import com.vaadin.ui.TextField;
 
 @SuppressWarnings("serial")
-public class EntityForm<E extends IEntity<E>> extends CustomComponent
+public class EntityForm<E extends IEntity<E>> extends CustomComponent implements IEntityForm<E>
 {
 	static Logger log = Logger.getLogger(EntityForm.class);
 	private Class<E> entityClass;
@@ -89,12 +89,20 @@ public class EntityForm<E extends IEntity<E>> extends CustomComponent
 		return field;
 	}
 	
+	/* (non-Javadoc)
+	 * @see com.fettmedia.stagebook.web.forms.IEntityForm#getInput()
+	 */
+	@Override
 	public E getInput()
 	{
 		E entity = item.getBean();
 		return entity;
 	}
 	
+	/* (non-Javadoc)
+	 * @see com.fettmedia.stagebook.web.forms.IEntityForm#commit()
+	 */
+	@Override
 	public void commit()
 	{
 		try
@@ -108,6 +116,10 @@ public class EntityForm<E extends IEntity<E>> extends CustomComponent
 		}
 	}
 	
+	/* (non-Javadoc)
+	 * @see com.fettmedia.stagebook.web.forms.IEntityForm#setInput(E)
+	 */
+	@Override
 	public void setInput(E entity)
 	{
 		item = new BeanItem<E>(entity);
@@ -131,11 +143,19 @@ public class EntityForm<E extends IEntity<E>> extends CustomComponent
 		return "version";
 	}
 
+	/* (non-Javadoc)
+	 * @see com.fettmedia.stagebook.web.forms.IEntityForm#getEntityClass()
+	 */
+	@Override
 	public Class<E> getEntityClass()
 	{
 		return entityClass;
 	}
 
+	/* (non-Javadoc)
+	 * @see com.fettmedia.stagebook.web.forms.IEntityForm#setEntityClass(java.lang.Class)
+	 */
+	@Override
 	public void setEntityClass(Class<E> entityClass)
 	{
 		this.entityClass = entityClass;
@@ -151,6 +171,10 @@ public class EntityForm<E extends IEntity<E>> extends CustomComponent
 		this.stdFieldId = stdFieldId;
 	}
 	
+	/* (non-Javadoc)
+	 * @see com.fettmedia.stagebook.web.forms.IEntityForm#focusStandardField()
+	 */
+	@Override
 	public void focusStandardField()
 	{
 		if ((binder != null) && (stdFieldId != null))
