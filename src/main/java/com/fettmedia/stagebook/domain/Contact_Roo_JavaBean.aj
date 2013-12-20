@@ -7,6 +7,14 @@ import com.fettmedia.stagebook.domain.Contact;
 
 privileged aspect Contact_Roo_JavaBean {
     
+    public String Contact.getCompanyName() {
+        return this.companyName;
+    }
+    
+    public void Contact.setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+    
     public String Contact.getFirstName() {
         return this.firstName;
     }
@@ -21,14 +29,6 @@ privileged aspect Contact_Roo_JavaBean {
     
     public void Contact.setLastName(String lastName) {
         this.lastName = lastName;
-    }
-    
-    public String Contact.getCompanyName() {
-        return this.companyName;
-    }
-    
-    public void Contact.setCompanyName(String companyName) {
-        this.companyName = companyName;
     }
     
 }

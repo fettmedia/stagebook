@@ -3,11 +3,11 @@
 
 package com.fettmedia.stagebook.domain;
 
-import com.fettmedia.stagebook.domain.Contact;
-import org.springframework.beans.factory.annotation.Configurable;
+import com.fettmedia.stagebook.domain.StageBookEntity;
+import javax.persistence.MappedSuperclass;
 
-privileged aspect Contact_Roo_Configurable {
+privileged aspect StageBookEntity_Roo_Jpa_Entity {
     
-    declare @type: Contact: @Configurable;
+    declare @type: StageBookEntity: @MappedSuperclass;
     
 }

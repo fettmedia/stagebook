@@ -2,6 +2,7 @@ package com.fettmedia.stagebook.web.forms;
 
 import org.apache.log4j.Logger;
 
+import com.fettmedia.stagebook.domain.AbstractEntity;
 import com.fettmedia.stagebook.domain.IEntity;
 import com.fettmedia.stagebook.web.event.EntityFormOnCreateEvent;
 import com.fettmedia.stagebook.web.event.EventBusProvider;
@@ -20,7 +21,7 @@ import com.vaadin.ui.FormLayout;
 import com.vaadin.ui.TextField;
 
 @SuppressWarnings("serial")
-public class EntityForm<E extends IEntity<E>> extends CustomComponent implements IEntityForm<E>
+public class EntityForm<E extends AbstractEntity<E>> extends CustomComponent implements IEntityForm<E>
 {
 	static Logger log = Logger.getLogger(EntityForm.class);
 	private Class<E> entityClass;

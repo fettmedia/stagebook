@@ -2,10 +2,7 @@ package com.fettmedia.stagebook.domain;
 
 public interface IEntity<E>
 {
-	public void persist();
-	public void remove();
-	public E merge();
-	
+		
 	public Long getId();
 	
 	/**
@@ -21,5 +18,5 @@ public interface IEntity<E>
 	 * @return A new entity of the same type. The entity's ID is null. IDs for relations are
 	 * treated differently on each entity.
 	 */
-	public E copy(E source);
+	public E copy();
 }

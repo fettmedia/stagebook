@@ -7,8 +7,10 @@ import java.util.List;
 import net.engio.mbassy.listener.Handler;
 
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.fettmedia.stagebook.domain.service.IBaseService;
 import com.fettmedia.stagebook.web.components.EntityTable;
 import com.fettmedia.stagebook.web.event.ConfigureEntityTableEvent;
 import com.fettmedia.stagebook.web.event.EditEntityEvent;
@@ -21,6 +23,9 @@ import com.vaadin.data.util.BeanContainer;
 public abstract class EntityTablePresenter<ID, E>
 {
 	static Logger log = Logger.getLogger(EntityTablePresenter.class);
+	
+	@Autowired
+	IBaseService<E> service;
 	
 	private Class<E> entityClass;
 	private EntityTable<ID, E> table;
@@ -95,7 +100,11 @@ public abstract class EntityTablePresenter<ID, E>
 		return "version";
 	}
 	
-	public abstract List<E> listEntities();
+	public List<E> listEntities()
+	{
+		return service.findAll();
+	}
+	
 	public abstract void doOnNewEntity();
 	public abstract void doOnEditEntity();
 	public abstract void setSelectionId(Object value);

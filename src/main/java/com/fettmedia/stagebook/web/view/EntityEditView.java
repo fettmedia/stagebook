@@ -8,9 +8,11 @@ import org.springframework.stereotype.Component;
 
 import ru.xpoft.vaadin.VaadinView;
 
+import com.fettmedia.stagebook.domain.AbstractEntity;
 import com.fettmedia.stagebook.domain.IEntity;
 import com.fettmedia.stagebook.web.event.EntityEditViewOnEnterEvent;
 import com.fettmedia.stagebook.web.event.EventBusProvider;
+import com.fettmedia.stagebook.web.forms.EntityForm;
 import com.fettmedia.stagebook.web.forms.IEntityForm;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.ui.VerticalLayout;
@@ -19,12 +21,12 @@ import com.vaadin.ui.VerticalLayout;
 @Component
 @Scope("session")
 @VaadinView(EntityEditView.NAME)
-public abstract class EntityEditView<ID, E extends IEntity<E>> extends VerticalLayout implements IMVPView
+public abstract class EntityEditView<ID, E extends AbstractEntity<E>> extends VerticalLayout implements IMVPView
 {
 	static Logger log = Logger.getLogger(EntityEditView.class);
 	public final static String NAME = "EntityEditView";
 	
-	private IEntityForm<E> form;
+	private EntityForm<E> form;
 	
 	@Override
 	public void enter(ViewChangeEvent event)
@@ -36,12 +38,12 @@ public abstract class EntityEditView<ID, E extends IEntity<E>> extends VerticalL
 	
 	public abstract IEntityForm<E> createForm();
 	
-	public IEntityForm<E> getForm()
+	public EntityForm<E> getForm()
 	{
 		if (form == null)
 		{
-			form = createForm();
-			addComponent(getForm());
+			form = (EntityForm<E>) createForm();
+			addComponent(form);
 		}
 		return form;
 	}

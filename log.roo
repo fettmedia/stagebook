@@ -20,3 +20,17 @@ perform tests
 // Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-12-15 15:01:45
 // Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-12-17 21:55:28
 // Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-12-18 21:34:59
+repository jpa --interface ~.domain.repos.IContactRepository --entity ~.domain.Contact
+hint service
+service type --interface ~.domain.service.IContactService --class ~.domain.service.ContactService --entity ~.domain.Contact
+entity jpa --class ~.domain.AbstractEntity --abstract --mappedSuperclass  
+entity jpa --class ~.domain.StageBookEntity --extends ~.domain.AbstractEntity --mappedSuperclass 
+entity jpa --class ~.domain.Contact --extends ~.domain.StageBookEntity
+repository jpa --interface ~.domain.repos.IAbstractEntityRepository --entity ~.domain.AbstractEntity
+field string --fieldName companyName
+field string --fieldName firstName
+field string --fieldName lastName
+service type --interface IBaseService
+service type --interface ~.domain.service.IBaseService --class ~.domain.service.BaseService --entity ~.domain.AbstractEntity
+repository jpa --interface ~.domain.repos.IContactRepository --entity ~.domain.Contact
+service type --interface ~domain.service.IContactService --class ~.domain.service.ContactService --entity ~.domain.Contact

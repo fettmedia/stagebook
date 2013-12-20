@@ -1,33 +1,34 @@
 package com.fettmedia.stagebook.domain;
+
 import org.springframework.roo.addon.javabean.RooJavaBean;
-import org.springframework.roo.addon.jpa.activerecord.RooJpaActiveRecord;
+import org.springframework.roo.addon.jpa.entity.RooJpaEntity;
 import org.springframework.roo.addon.tostring.RooToString;
 
 @RooJavaBean
 @RooToString
-@RooJpaActiveRecord
-public class Contact implements IEntity<Contact> {
+@RooJpaEntity
+public class Contact extends StageBookEntity<Contact>
+{
 
-    /**
+	/**
      */
-    private String firstName;
+	private String	companyName;
 
-    /**
+	/**
      */
-    private String lastName;
+	private String	firstName;
 
-    /**
+	/**
      */
-    private String companyName;
+	private String	lastName;
 
-	
 	@Override
-	public Contact copy(Contact source)
+	public Contact copy()
 	{
-		Contact theCopy = new Contact();
-		theCopy.setCompanyName(source.getCompanyName());
-		theCopy.setFirstName(source.getFirstName());
-		theCopy.setLastName(source.getLastName());
-		return theCopy;
-	}
+		Contact c = new Contact();
+		c.setCompanyName(this.getCompanyName());
+		c.setFirstName(this.getFirstName());
+		c.setLastName(this.getLastName());
+		return c;
+    }
 }

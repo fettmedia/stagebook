@@ -1,8 +1,8 @@
 package com.fettmedia.stagebook.web.forms;
 
-import com.fettmedia.stagebook.domain.IEntity;
+import com.fettmedia.stagebook.domain.AbstractEntity;
 
-public interface IEntityForm<E extends IEntity<E>>
+public interface IEntityForm<E extends AbstractEntity<E>>
 {
 
 	public abstract E getInput();
