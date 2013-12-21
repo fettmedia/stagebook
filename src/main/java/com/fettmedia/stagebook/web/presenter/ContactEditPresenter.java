@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.fettmedia.stagebook.domain.Contact;
+import com.fettmedia.stagebook.domain.service.ContactService;
 import com.fettmedia.stagebook.domain.service.IBaseService;
 
 @Component
@@ -15,7 +16,7 @@ public class ContactEditPresenter extends EntityFormPresenter<Long, Contact>
 	static Logger log = Logger.getLogger(ContactEditPresenter.class);
 	
 	@Autowired
-	IBaseService<Contact> service;
+	ContactService service;
 	
 	public ContactEditPresenter()
 	{
@@ -47,6 +48,12 @@ public class ContactEditPresenter extends EntityFormPresenter<Long, Contact>
 			getForm().setInput(c);
 		}
 		
+	}
+
+	@Override
+	public IBaseService<Contact> getService()
+	{
+		return service;
 	}
 
 }

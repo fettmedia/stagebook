@@ -34,3 +34,17 @@ service type --interface IBaseService
 service type --interface ~.domain.service.IBaseService --class ~.domain.service.BaseService --entity ~.domain.AbstractEntity
 repository jpa --interface ~.domain.repos.IContactRepository --entity ~.domain.Contact
 service type --interface ~domain.service.IContactService --class ~.domain.service.ContactService --entity ~.domain.Contact
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2013-12-20 02:14:25
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-12-20 08:50:41
+focus --class ~.domain.AbstractEntity
+focus --class ~.domain.AbstractEntity
+focus --class ~.domain.AbstractEntity
+focus --class ~.domain.AbstractEntity
+hint
+// [failed] entity jpa --class ~.domain.User --activeRecord false --extends ~.domain.AbstractEntity 
+// [failed] field string --fieldName userName
+// [failed] field string --fieldName userPassword
+entity jpa --class ~.domain.StageBookUser --activeRecord false --extends ~.domain.AbstractEntity 
+field string --fieldName userName
+field string --fieldName userPassword
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2013-12-20 09:02:23

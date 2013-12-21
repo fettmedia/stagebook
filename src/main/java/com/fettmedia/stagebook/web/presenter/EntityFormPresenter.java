@@ -3,11 +3,9 @@ package com.fettmedia.stagebook.web.presenter;
 import net.engio.mbassy.listener.Handler;
 
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.fettmedia.stagebook.domain.AbstractEntity;
-import com.fettmedia.stagebook.domain.IEntity;
 import com.fettmedia.stagebook.domain.service.IBaseService;
 import com.fettmedia.stagebook.web.event.EntityEditViewOnEnterEvent;
 import com.fettmedia.stagebook.web.event.EntityFormOnCreateEvent;
@@ -22,9 +20,6 @@ public abstract class EntityFormPresenter<ID, E extends AbstractEntity<E>>
 {
 
 	static Logger log = Logger.getLogger(EntityFormPresenter.class);
-	
-	@Autowired
-	IBaseService<E> service;
 	
 	private IEntityForm<E> form;
 	
@@ -44,7 +39,7 @@ public abstract class EntityFormPresenter<ID, E extends AbstractEntity<E>>
 	public void handleSaveEntity(SaveEntityEvent event)
 	{
 		form.commit();
-		service.save(form.getInput());
+		getService().save(form.getInput());
 	    Notification.show("Erfolgreich gespeichert", Notification.Type.HUMANIZED_MESSAGE);
 	    getForm().focusStandardField();
 	}
@@ -55,7 +50,7 @@ public abstract class EntityFormPresenter<ID, E extends AbstractEntity<E>>
 		form.commit();
 		E sourceObj = form.getInput();
 		E targetObj = sourceObj.copy();
-		service.save(targetObj);
+		getService().save(targetObj);
 		Notification.show("Erfolgreich ALS NEUER Datensatz gespeichert", Notification.Type.HUMANIZED_MESSAGE);
 		getForm().focusStandardField();
 	}
@@ -80,5 +75,5 @@ public abstract class EntityFormPresenter<ID, E extends AbstractEntity<E>>
 	}
 	
 	public abstract E createEntity();
-	
+	public abstract IBaseService<E> getService();
 }

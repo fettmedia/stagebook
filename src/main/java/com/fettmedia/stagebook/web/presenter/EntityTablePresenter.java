@@ -24,8 +24,7 @@ public abstract class EntityTablePresenter<ID, E>
 {
 	static Logger log = Logger.getLogger(EntityTablePresenter.class);
 	
-	@Autowired
-	IBaseService<E> service;
+	
 	
 	private Class<E> entityClass;
 	private EntityTable<ID, E> table;
@@ -100,10 +99,7 @@ public abstract class EntityTablePresenter<ID, E>
 		return "version";
 	}
 	
-	public List<E> listEntities()
-	{
-		return service.findAll();
-	}
+	public abstract List<E> listEntities();
 	
 	public abstract void doOnNewEntity();
 	public abstract void doOnEditEntity();

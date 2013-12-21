@@ -12,16 +12,16 @@ import org.springframework.data.repository.core.support.RepositoryFactorySupport
 
 import com.fettmedia.stagebook.domain.AbstractEntity;
 
-public class BaseRepositoryFactoryBean<R extends JpaRepository<E, ID>, E extends AbstractEntity, ID extends Serializable>
+public class BaseRepositoryFactoryBean<R extends JpaRepository<E, ID>, E extends AbstractEntity<E>, ID extends Serializable>
 		extends JpaRepositoryFactoryBean<R, E, ID>
 {
 	protected RepositoryFactorySupport createRepositoryFactory(
 			EntityManager entityManager)
 	{
-		return new BaseRepositoryFactory(entityManager);
+		return new BaseRepositoryFactory<E, ID>(entityManager);
 	}
 
-	private static class BaseRepositoryFactory<E extends AbstractEntity, ID extends Serializable>
+	private static class BaseRepositoryFactory<E extends AbstractEntity<E>, ID extends Serializable>
 			extends JpaRepositoryFactory
 	{
 

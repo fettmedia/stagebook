@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.fettmedia.stagebook.domain.Contact;
+import com.fettmedia.stagebook.domain.service.ContactService;
 import com.fettmedia.stagebook.domain.service.IBaseService;
 import com.fettmedia.stagebook.web.view.ContactEditView;
 import com.vaadin.ui.UI;
@@ -16,6 +17,9 @@ public class ContactListPresenter extends EntityTablePresenter<Long, Contact>
 {
 		
 	static Logger log = Logger.getLogger(ContactListPresenter.class);
+	
+	@Autowired
+	ContactService service;
 	
 	private Long selectedId;
 	
@@ -43,6 +47,12 @@ public class ContactListPresenter extends EntityTablePresenter<Long, Contact>
 	public void setSelectionId(Object value)
 	{
 		selectedId = Long.parseLong(value.toString());		
+	}
+
+	@Override
+	public List<Contact> listEntities()
+	{
+		return service.findAll();
 	}
 
 }

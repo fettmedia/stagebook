@@ -11,5 +11,5 @@ import com.fettmedia.stagebook.domain.AbstractEntity;
 //@Repository
 //@RooJpaRepository(domainType = Contact.class)
 @NoRepositoryBean
-public interface IBaseRepository<E extends AbstractEntity, ID extends Serializable> extends JpaSpecificationExecutor<E>, JpaRepository<E, ID> {
+public interface IBaseRepository<E extends AbstractEntity<E>, ID extends Serializable> extends JpaSpecificationExecutor<E>, JpaRepository<E, ID> {
 }

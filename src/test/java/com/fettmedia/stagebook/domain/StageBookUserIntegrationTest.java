@@ -1,17 +1,5 @@
 package com.fettmedia.stagebook.domain;
 
-import com.fettmedia.stagebook.domain.service.ContactService;
-import com.fettmedia.stagebook.domain.service.IBaseService;
-import com.fettmedia.stagebook.domain.EntityIntegrationTest;
-
-import java.util.Iterator;
-import java.util.List;
-
-import javax.validation.ConstraintViolation;
-import javax.validation.ConstraintViolationException;
-
-import org.junit.Assert;
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
@@ -19,26 +7,30 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.fettmedia.stagebook.domain.service.IBaseService;
+import com.fettmedia.stagebook.domain.service.StageBookUserService;
+
 @Configurable
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath*:/META-INF/spring/applicationContext*.xml")
 @Transactional
-public class ContactIntegrationTest extends EntityIntegrationTest<Contact>
+public class StageBookUserIntegrationTest extends
+		EntityIntegrationTest<StageBookUser>
 {
 	@Autowired
-	ContactDataOnDemand		dod;
-
+	StageBookUserService service;
+	
 	@Autowired
-	ContactService	service;
+	StageBookUserDataOnDemand dod;
 
 	@Override
-	protected DataOnDemand<Contact> getDod()
+	protected DataOnDemand<StageBookUser> getDod()
 	{
 		return dod;
 	}
 
 	@Override
-	protected IBaseService<Contact> getService()
+	protected IBaseService<StageBookUser> getService()
 	{
 		return service;
 	}
@@ -46,32 +38,7 @@ public class ContactIntegrationTest extends EntityIntegrationTest<Contact>
 	@Override
 	protected String getEntityName()
 	{
-		return "Contact";
-	}
-	
-	@Test
-	@Transactional
-	public void testMarker()
-	{
+		return "StageBookUser";
 	}
 
-	
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-	
 }
