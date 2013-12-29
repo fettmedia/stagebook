@@ -1,5 +1,6 @@
 package com.fettmedia.stagebook.web.view;
 
+import org.apache.shiro.authz.annotation.RequiresAuthentication;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -13,6 +14,7 @@ import com.fettmedia.stagebook.web.forms.IEntityForm;
 @Component
 @Scope("session")
 @VaadinView(ContactEditView.NAME)
+@RequiresAuthentication
 public class ContactEditView extends EntityEditView<Long, Contact>
 {
 	public static final String NAME = "ContactEditView";

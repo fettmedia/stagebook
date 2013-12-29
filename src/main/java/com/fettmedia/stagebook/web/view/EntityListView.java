@@ -2,6 +2,7 @@ package com.fettmedia.stagebook.web.view;
 
 import javax.annotation.PostConstruct;
 
+import org.apache.shiro.authz.annotation.RequiresAuthentication;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -30,6 +31,7 @@ import com.vaadin.ui.themes.Reindeer;
 @Component
 @Scope("prototype")
 @VaadinView(EntityListView.NAME)
+@RequiresAuthentication
 public abstract class EntityListView<ID, E> extends Panel implements IMVPView
 {
 	public static final String NAME = "EntityListView";

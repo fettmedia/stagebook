@@ -19,6 +19,7 @@ public class VerticalMenu extends VerticalLayout
 		setStyleName("sidebar");
 		setImmediate(false);
 		setMargin(false);
+		setSpacing(false);
 		addStyleName(Reindeer.LAYOUT_BLUE);
 	}
 	

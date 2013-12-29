@@ -1,6 +1,7 @@
 package com.fettmedia.stagebook.web.view;
 
 import org.apache.log4j.Logger;
+import org.apache.shiro.authz.annotation.RequiresAuthentication;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -13,6 +14,7 @@ import com.fettmedia.stagebook.web.components.EntityTable;
 @Component
 @Scope("prototype")
 @VaadinView(ContactListView.NAME)
+@RequiresAuthentication
 public class ContactListView extends EntityListView<Long, Contact>
 {
 	static Logger log = Logger.getLogger(ContactListView.class);

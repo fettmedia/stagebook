@@ -8,7 +8,6 @@ import com.fettmedia.stagebook.domain.service.IBaseService;
 import com.fettmedia.stagebook.domain.service.StageBookUserService;
 
 @Component
-@RooDataOnDemand(entity=Contact.class)
 public class StageBookUserDataOnDemand extends DataOnDemand<StageBookUser>
 {
 	@Autowired

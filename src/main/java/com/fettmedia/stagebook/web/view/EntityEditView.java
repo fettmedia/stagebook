@@ -3,6 +3,7 @@ package com.fettmedia.stagebook.web.view;
 import javax.annotation.PostConstruct;
 
 import org.apache.log4j.Logger;
+import org.apache.shiro.authz.annotation.RequiresAuthentication;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -21,6 +22,7 @@ import com.vaadin.ui.VerticalLayout;
 @Component
 @Scope("session")
 @VaadinView(EntityEditView.NAME)
+@RequiresAuthentication
 public abstract class EntityEditView<ID, E extends AbstractEntity<E>> extends VerticalLayout implements IMVPView
 {
 	static Logger log = Logger.getLogger(EntityEditView.class);

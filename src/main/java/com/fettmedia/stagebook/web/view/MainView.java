@@ -3,6 +3,7 @@ package com.fettmedia.stagebook.web.view;
 import javax.annotation.PostConstruct;
 
 import org.apache.log4j.Logger;
+import org.apache.shiro.authz.annotation.RequiresAuthentication;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -17,6 +18,7 @@ import com.vaadin.ui.VerticalLayout;
 @Component
 @Scope("prototype")
 @VaadinView(MainView.NAME)
+@RequiresAuthentication
 public class MainView extends Panel implements IMVPView
 {
 	static Logger log = Logger.getLogger(MainView.class);
